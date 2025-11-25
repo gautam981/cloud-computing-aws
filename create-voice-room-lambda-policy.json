@@ -1,0 +1,47 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "dynamodb:GetItem",
+        "dynamodb:PutItem",
+        "dynamodb:UpdateItem",
+        "dynamodb:Scan"
+      ],
+      "Resource": [
+        "arn:aws:dynamodb:*:*:table/ChatConnections",
+        "arn:aws:dynamodb:*:*:table/ChatRooms",
+        "arn:aws:dynamodb:*:*:table/VoiceRooms"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "kinesisvideo:CreateSignalingChannel",
+        "kinesisvideo:DescribeSignalingChannel",
+        "kinesisvideo:DeleteSignalingChannel",
+        "kinesisvideo:GetSignalingChannelEndpoint",
+        "kinesisvideo:TagResource"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "execute-api:ManageConnections",
+        "execute-api:Invoke"
+      ],
+      "Resource": "arn:aws:execute-api:*:*:*/@connections/*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": "arn:aws:logs:*:*:*"
+    }
+  ]
+}

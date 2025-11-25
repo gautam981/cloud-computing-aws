@@ -1,0 +1,12 @@
+{
+    "Version": "2012-10-16",
+    "Statement": [
+        {
+            "Sid": "PublicReadGetObject",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::your-chat-app-frontend/*"
+        }
+    ]
+}
