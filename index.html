@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Group Chat App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="login-section">
+            <h2>Join Chat</h2>
+            <input type="text" id="username-input" placeholder="Enter your username">
+            <button onclick="connect()">Connect</button>
+        </div>
+
+        <div id="room-section" style="display:none;">
+            <h2>Rooms</h2>
+            <div>
+                <input type="text" id="room-name-input" placeholder="Room name">
+                <button onclick="createRoom()">Create Room</button>
+            </div>
+            <div>
+                <input type="text" id="join-room-input" placeholder="Room ID to join">
+                <button onclick="joinRoom()">Join Room</button>
+            </div>
+            <div id="current-room-info"></div>
+        </div>
+
+        <div id="chat-section" style="display:none;">
+            <div class="chat-header">
+                <h3 id="room-title"></h3>
+                <button onclick="showMembers()">View Members</button>
+                <button onclick="leaveRoom()">Leave Room</button>
+            </div>
+            
+            <!-- Voice Chat Controls -->
+            <div class="voice-controls">
+                <button id="start-voice-btn" onclick="startVoiceChat()">🎤 Start Voice Chat</button>
+                <button id="join-voice-btn" onclick="joinVoiceChat()" style="display:none;">🎤 Join Voice</button>
+                <button id="end-voice-btn" onclick="endVoiceChat()" style="display:none;">❌ End Voice</button>
+                <button id="mute-btn" onclick="toggleMute()" style="display:none;">🔇 Mute</button>
+                <div id="voice-status"></div>
+                <div id="voice-participants"></div>
+            </div>
+            
+            <div id="messages-container"></div>
+            <div class="message-input-container">
+                <input type="text" id="message-input" placeholder="Type a message..." 
+                       onkeypress="if(event.key==='Enter') sendMessage()">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+
+        <div id="members-modal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <span class="close" onclick="closeMembers()">&times;</span>
+                <h3>Room Members</h3>
+                <div id="members-list"></div>
+                <div id="pending-requests"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio elements for remote voice streams -->
+    <div id="remote-audio-container"></div>
+
+    <!-- AWS KVS WebRTC SDK -->
+    <script src="https://unpkg.com/amazon-kinesis-video-streams-webrtc@latest/dist/kvs-webrtc.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
