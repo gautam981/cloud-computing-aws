@@ -1,0 +1,13 @@
+{
+  "Version": "2012-10-16",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "kinesisvideo:ConnectAsMaster",
+        "kinesisvideo:ConnectAsViewer"
+      ],
+      "Resource": "*"
+    }
+  ]
+}

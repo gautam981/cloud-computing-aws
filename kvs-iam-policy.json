@@ -1,0 +1,25 @@
+{
+  "Version": "2012-10-16",
+  "Statement": [
+    {
+      "Sid": "KinesisVideoStreamsAccess",
+      "Effect": "Allow",
+      "Action": [
+        "kinesisvideo:CreateSignalingChannel",
+        "kinesisvideo:DeleteSignalingChannel",
+        "kinesisvideo:GetSignalingChannelEndpoint",
+        "kinesisvideo:DescribeSignalingChannel",
+        "kinesisvideo:ListSignalingChannels"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "STSAssumeRole",
+      "Effect": "Allow",
+      "Action": [
+        "sts:AssumeRole"
+      ],
+      "Resource": "arn:aws:iam::ACCOUNT_ID:role/KVSAccessRole"
+    }
+  ]
+}

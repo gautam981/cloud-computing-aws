@@ -1,0 +1,13 @@
+{
+  "Version": "2012-10-16",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "lambda.amazonaws.com",
+        "AWS": "arn:aws:iam::ACCOUNT_ID:role/ChatAppLambdaExecutionRole"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
